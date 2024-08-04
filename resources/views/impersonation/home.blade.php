@@ -16,8 +16,8 @@
 
                     <ul>
                         @foreach($users as $user)
-                        <li>
-                            {{$user->name}}
+                        <li class="users pb-3">
+                            {{$user->name}} - <a href="{{ route('impersonate', $user->id) }}" class="btn btn-primary">Impersonate</a>
                         </li>
                         @endforeach
                     </ul>

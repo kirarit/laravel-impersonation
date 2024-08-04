@@ -1,6 +1,8 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ImpersonationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,4 +22,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/users', [App\Http\Controllers\ImpersonationControleler::class, 'index'])->name('home');
+Route::get('/users', [App\Http\Controllers\ImpersonationController::class, 'index'])->name('home');
+
+Route::get('impersonate/{id}', [ImpersonationController::class, 'impersonate'])->name('impersonate');
+Route::get('leave-impersonation', [ImpersonationController::class, 'leave'])->name('leave');
